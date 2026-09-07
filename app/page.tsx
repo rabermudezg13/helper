@@ -47,9 +47,11 @@ export default function Home() {
       <section className="workspace onboarding-workspace">
         <div className="mobile-progress"><span>Step {step + 1} of {steps.length}</span><Progress value={((step+1)/steps.length)*100}/></div>
         <div className="form-column onboarding-column">
-          <div className="eyebrow"><Sparkles size={15}/> Guided by Lapi</div>
+          <div className="experience-meta"><div className="eyebrow"><Sparkles size={15}/> Guided by Lapi</div><span className="time-pill">About 5 min</span></div>
           <h1>{steps[step].label}</h1>
           <p className="intro">Complete this quick check before moving to the next step.</p>
+
+          <div className="progress-summary"><div><span>YOUR PROGRESS</span><strong>{Math.round(((step+1)/steps.length)*100)}% complete</strong></div><Progress value={((step+1)/steps.length)*100}/></div>
 
           <div className="form-card onboarding-card">
             {step===0&&<div className="checklist-screen">
@@ -65,7 +67,7 @@ export default function Home() {
             {step===3&&<DecisionScreen icon={<Mail/>} title="Look for the second email" description="After completing the first paperwork, check your inbox again. Look for an email from:" terms={['Kelly I-9', 'GryphonHR']} question="Did you receive the email with the link?" answer={answer} setAnswer={setAnswer}/>} 
 
             {step===4&&<div className="instruction-screen">
-              <span className="instruction-icon"><KeyRound/></span><h2>Open the link and sign in</h2><ol><li><span>1</span><p><strong>Username</strong>Enter your email address.</p></li><li><span>2</span><p><strong>Temporary password</strong>Use the temporary password provided by Kelly or your representative.</p></li><li><span>3</span><p><strong>Create a new password</strong>Enter the temporary password first. The system will then ask you to create a personal password.</p></li></ol><div className="security-note"><ShieldCheck/><span><strong>Important:</strong> do not reuse the temporary password or share your new password.</span></div>
+              <span className="instruction-icon"><KeyRound/></span><h2>Open the link and sign in</h2><ol><li><span>1</span><p><strong>Username</strong>Enter your email address.</p></li><li><span>2</span><p><strong>Temporary password</strong>Use the temporary password provided by Kelly or your representative.</p></li><li><span>3</span><p><strong>Create a new password</strong>Enter the temporary password first. The system will then ask you to create a personal password.</p></li></ol><div className="security-note"><ShieldCheck/><span><strong>Important:</strong> change the temporary password immediately. Never share your new personal password.</span></div>
             </div>}
 
             {step===5&&<div className="instruction-screen final-screen">
@@ -78,7 +80,7 @@ export default function Home() {
           <div className="form-actions"><Button variant="outline" disabled={step===0} onClick={()=>go(step-1)}><ChevronLeft/> Back</Button><Button className="continue-button" disabled={!canContinue || answer==='no'} onClick={()=>go(step+1)}>{step===steps.length-1?'Start paperwork':'Next'} <ChevronRight/></Button></div>
         </div>
 
-        <aside className="mascot-panel" aria-live="polite"><div className="speech-bubble">{helper}</div><div className="mascot-halo"><img src="/lapi.png" alt="Lapi, the Sub Helper pencil mascot"/></div><div className="mascot-name"><strong>Lapi</strong><span>Your onboarding helper</span></div></aside>
+        <aside className="mascot-panel" aria-live="polite"><div className="mascot-status"><span></span> Lapi is here</div><div className="speech-bubble">{helper}</div><div className="mascot-halo"><span className="orbit orbit-one"></span><span className="orbit orbit-two"></span><img src="/lapi.png" alt="Lapi, the Sub Helper pencil mascot"/></div><div className="mascot-name"><strong>Lapi</strong><span>Your onboarding helper</span></div></aside>
       </section>
     </div>
   </main>;
