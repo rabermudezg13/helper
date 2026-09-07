@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Sub Helper | Paperwork sin estrés',
-  description: 'Asistente guiado para que los maestros sustitutos completen su paperwork de forma rápida y clara.',
+  title: 'Sub Helper | Paperwork without the stress',
+  description: 'A guided assistant that helps substitute teachers complete their onboarding paperwork clearly and confidently.',
 };
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
