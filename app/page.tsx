@@ -80,7 +80,7 @@ export default function Home() {
           <div className="form-actions"><Button variant="outline" disabled={step===0} onClick={()=>go(step-1)}><ChevronLeft/> Back</Button><Button className="continue-button" disabled={!canContinue || answer==='no'} onClick={()=>go(step+1)}>{step===steps.length-1?'Start paperwork':'Next'} <ChevronRight/></Button></div>
         </div>
 
-        <aside className="mascot-panel" aria-live="polite"><div className="mascot-status"><span></span> Lapi is here</div><div className="speech-bubble">{helper}</div><div className="mascot-halo"><span className="orbit orbit-one"></span><span className="orbit orbit-two"></span><img src="/lapi.png" alt="Lapi, the Sub Helper pencil mascot"/></div><div className="mascot-name"><strong>Lapi</strong><span>Your onboarding helper</span></div></aside>
+        <aside className="mascot-panel" aria-live="polite"><div className="mascot-status"><span></span> Lapi is here</div><div className="speech-bubble">{helper}</div><div className="mascot-halo"><span className="orbit orbit-one"></span><span className="orbit orbit-two"></span><img src={`${import.meta.env.BASE_URL}lapi.png`} alt="Lapi, the Sub Helper pencil mascot"/></div><div className="mascot-name"><strong>Lapi</strong><span>Your onboarding helper</span></div></aside>
       </section>
     </div>
   </main>;
